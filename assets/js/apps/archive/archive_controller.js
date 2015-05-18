@@ -40,6 +40,12 @@ define([
                       
                     });
 
+                    postsListView.on("childview:params:show",function(childView, params){
+                      //$('primary div.list-view').fadeOut();
+                      persianGULF.PostsApp.List.Controller.listPosts(params);
+                      
+                    });
+
                     //Posts List Show
                    persianGULF.postRegion.show(postsListView);
                  
@@ -58,6 +64,6 @@ define([
                 
        } /*List.Controller*/
    }); /*postsApp.List*/
-  
+    return persianGULF.PostsApp.List.Controller;
 }); /*requireJS.define*/
 

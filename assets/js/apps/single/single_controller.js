@@ -33,5 +33,5 @@ define([
 
 	   } /*Single.Controller*/
 	 }); /*persianGULF*/
-
+	return persianGULF.PostsApp.Single.Controller;
 }); /*requireJS define*/

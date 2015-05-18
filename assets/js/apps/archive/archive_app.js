@@ -48,5 +48,5 @@ define(['marionette','apps','apps/archive/archive_controller'], function(Marione
 
 	 }); /*PostsApp*/
 
-	
+	return persianGULF.PostsApp;	
 }); /*requireJS Define*/

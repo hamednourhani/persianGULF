@@ -1,4 +1,8 @@
-define(["apps","marionette"], function(persianGULF,Marionette){
+define([
+        "apps",
+        "marionette",
+        ],
+         function(persianGULF,Marionette){
   "use strict" 
   console.log('list_view is running');
   
@@ -24,28 +28,38 @@ define(["apps","marionette"], function(persianGULF,Marionette){
              e.stopPropagation();
              var pageData = {};
              
-             if(persianGULF.isExternalStringReplace(e.target.href)){
-                  window.open(e.target.href, '_blank');
-             } else {
-                  if(element.hasClass('post-link')){
-                  
-                    this.trigger("post:show", this.model);
-                    var newRoute = this.model.attributes.link.replace(/^.*\/\/[^\/]+/, '');
-                    persianGULF.navigate(newRoute);
-                  
-                  } else {
-                    
-                    var params = persianGULF.retrieveParams(e.target.pathname);
-              
-                    $.when(params).done(function(params){
-                      console.log("params done :"+params);
-                      persianGULF.PostsApp.Single.Controller.showPost(params);
-                      persianGULF.navigate(e.target.pathname);
-                     });
-                    
+                 if(persianGULF.isExternalStringReplace(e.target.href)){
+                      window.open(e.target.href, '_blank');
+                 } else {
+                      
+                      if(element.hasClass('post-link') || element.hasClass('data-date') || element.hasClass('data-comment')){
+                      
+                        this.trigger("post:show", this.model);
+                        var newRoute = this.model.attributes.link.replace(/^.*\/\/[^\/]+/, '');
+                        persianGULF.navigate(newRoute);
+                      
+                      } else {
+
+                            if(element.hasClass('data-author')){
+                              var params = {author : element.attr('data-author-id')};
+
+                            } else if(element.hasClass('data-cat')){
+                               var params = {category_name : element.attr('data-cat')};
+                            
+                            } else if(element.hasClass('data-tag')){
+                               var params = {tag : element.attr('data-tag')};   
+                            
+                            }else{
+                              var params = persianGULF.retrieveParams(e.target.pathname);
+                              persianGULF.navigate(e.target.pathname);
+                            }
+                            var currentModel = this;
+                            $.when(params).done(function(params){
+                                console.log("params done :"+params);
+                                currentModel.trigger("params:show", params);
+                            });
                   }
               }
-
            }, /*showClicked*/
 
 
@@ -62,5 +76,5 @@ define(["apps","marionette"], function(persianGULF,Marionette){
        });/*List.posts*/
    }); /*postsApp.List*/
 
-  
+  return persianGULF.PostsApp.List;
 }); /*requireJS define*/

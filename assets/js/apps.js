@@ -32,7 +32,7 @@ define(["marionette",'jquery'], function(Marionette,$){
      	
           var req_defer = $.Deferred();
           var req_options = {requested_uri:currentRoute};
-          var UrlHelper = require(['urlhelper']);
+          
   
           console.log('req_optoins : '+ JSON.stringify(req_options));
           

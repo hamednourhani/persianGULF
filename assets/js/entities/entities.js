@@ -61,5 +61,5 @@ define(["apps","jquery","backbone"], function(persianGULF,$,Backbone){
 
   }); /*Entities*/
 
-  
+  return persianGULF.Entities;  
 }); /*requireJS define*/

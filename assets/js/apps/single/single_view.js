@@ -46,6 +46,6 @@ define(["apps","marionette"], function(persianGULF,Marionette){
 	    
 	}); /*persianGULF*/
 
-	
+	return persianGULF.PostsApp.Single;
 
 }); /*requireJS define*/

@@ -12,5 +12,5 @@ define(["apps","marionette"], function(persianGULF,Marionette){
 	   }); /*views.Loading*/
 	}); /*Common.views*/
 
-	
+	return persianGULF.Common.Views;
 }); /*requireJS define*/
