@@ -1,0 +1,294 @@
+# Copyright (C) 2015 iTstar
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: persianGULF 0.1\n"
+"Report-Msgid-Bugs-To: http://itstar.ir/contact-us\n"
+"POT-Creation-Date: 2015-05-05 08:21:03+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: iTstar <info@itstar.ir>\n"
+"X-Generator: grunt-wp-i18n 0.5.0\n"
+
+#: functions.php:58
+msgid "Top primary menu"
+msgstr ""
+
+#: functions.php:59
+msgid "Secondary menu in left sidebar"
+msgstr ""
+
+#: php-archive/404.php:13
+msgid "Epic 404 - Article Not Found"
+msgstr ""
+
+#: php-archive/404.php:19
+msgid "The article you were looking for was not found, but maybe try looking again!"
+msgstr ""
+
+#: php-archive/404.php:31
+msgid "This is the 404.php template."
+msgstr ""
+
+#: php-archive/archive-custom_type.php:33 php-archive/page-custom.php:33
+#: php-archive/page.php:18
+msgid ""
+"Posted <time class=\"updated\" datetime=\"%1$s\" "
+"itemprop=\"datePublished\">%2$s</time> by <span class=\"author\">%3$s</span>"
+msgstr ""
+
+#: php-archive/archive-custom_type.php:33 php-archive/functions.php:216
+#: php-archive/taxonomy-custom_cat.php:33
+msgid "F jS, Y"
+msgstr ""
+
+#: php-archive/archive-custom_type.php:58 php-archive/archive.php:84
+#: php-archive/index.php:54 php-archive/page-custom.php:80
+#: php-archive/page.php:61 php-archive/single-custom_type.php:80
+#: php-archive/single.php:34 php-archive/taxonomy-custom_cat.php:57
+msgid "Oops, Post Not Found!"
+msgstr ""
+
+#: php-archive/archive-custom_type.php:61 php-archive/archive.php:87
+#: php-archive/index.php:57 php-archive/page-custom.php:83
+#: php-archive/page.php:64 php-archive/single-custom_type.php:83
+#: php-archive/single.php:37 php-archive/taxonomy-custom_cat.php:60
+msgid "Uh Oh. Something is missing. Try double checking things."
+msgstr ""
+
+#: php-archive/archive-custom_type.php:64
+msgid "This is the error message in the custom posty type archive template."
+msgstr ""
+
+#: php-archive/archive.php:11 php-archive/taxonomy-custom_cat.php:23
+msgid "Posts Categorized:"
+msgstr ""
+
+#: php-archive/archive.php:16
+msgid "Posts Tagged:"
+msgstr ""
+
+#: php-archive/archive.php:25
+msgid "Posts By:"
+msgstr ""
+
+#: php-archive/archive.php:30
+msgid "Daily Archives:"
+msgstr ""
+
+#: php-archive/archive.php:35
+msgid "Monthly Archives:"
+msgstr ""
+
+#: php-archive/archive.php:40
+msgid "Yearly Archives:"
+msgstr ""
+
+#: php-archive/archive.php:52 php-archive/index.php:17
+#: php-archive/search.php:19 post-formats/format-aside.php:10
+#: post-formats/format-audio.php:10 post-formats/format-chat.php:10
+#: post-formats/format-gallery.php:10 post-formats/format-image.php:10
+#: post-formats/format-link.php:10 post-formats/format-quote.php:10
+#: post-formats/format-status.php:10 post-formats/format-video.php:10
+#: post-formats/format.php:25
+msgid "Posted %1$s by %2$s"
+msgstr ""
+
+#: php-archive/archive.php:90
+msgid "This is the error message in the archive.php template."
+msgstr ""
+
+#: php-archive/comments.php:17 php-archive/index.php:33
+msgid "<span>No</span> Comments"
+msgstr ""
+
+#: php-archive/comments.php:17 php-archive/index.php:33
+msgid "<span>One</span> Comment"
+msgstr ""
+
+#: php-archive/comments.php:17 php-archive/index.php:33
+msgid "<span>%</span> Comments"
+msgstr ""
+
+#: php-archive/comments.php:27
+msgid "Reply"
+msgstr ""
+
+#: php-archive/comments.php:38
+msgid "&larr; Previous Comments"
+msgstr ""
+
+#: php-archive/comments.php:39
+msgid "More Comments &rarr;"
+msgstr ""
+
+#: php-archive/comments.php:44
+msgid "Comments are closed."
+msgstr ""
+
+#: php-archive/footer.php:9
+msgid "Footer Links"
+msgstr ""
+
+#: php-archive/functions.php:103
+msgid "600px by 150px"
+msgstr ""
+
+#: php-archive/functions.php:104
+msgid "300px by 100px"
+msgstr ""
+
+#: php-archive/functions.php:159
+msgid "Sidebar 1"
+msgstr ""
+
+#: php-archive/functions.php:160
+msgid "The first (primary) sidebar."
+msgstr ""
+
+#: php-archive/functions.php:215
+msgid "<cite class=\"fn\">%1$s</cite> %2$s"
+msgstr ""
+
+#: php-archive/functions.php:215
+msgid "(Edit)"
+msgstr ""
+
+#: php-archive/functions.php:221
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: php-archive/header.php:62
+msgid "The Main Menu"
+msgstr ""
+
+#: php-archive/index.php:37
+msgid "filed under"
+msgstr ""
+
+#: php-archive/index.php:39 php-archive/page-custom.php:68
+#: php-archive/search.php:40 post-formats/format-aside.php:47
+#: post-formats/format-audio.php:47 post-formats/format-chat.php:47
+#: post-formats/format-gallery.php:47 post-formats/format-image.php:47
+#: post-formats/format-link.php:50 post-formats/format-quote.php:50
+#: post-formats/format-status.php:47 post-formats/format-video.php:47
+#: post-formats/format.php:66
+msgid "Tags:"
+msgstr ""
+
+#: php-archive/index.php:60
+msgid "This is the error message in the index.php template."
+msgstr ""
+
+#: php-archive/page-custom.php:57 php-archive/page.php:41
+#: php-archive/single-custom_type.php:57 post-formats/format-aside.php:38
+#: post-formats/format-audio.php:38 post-formats/format-chat.php:38
+#: post-formats/format-gallery.php:38 post-formats/format-image.php:38
+#: post-formats/format-link.php:38 post-formats/format-quote.php:38
+#: post-formats/format-status.php:38 post-formats/format-video.php:38
+#: post-formats/format.php:54
+msgid "Pages:"
+msgstr ""
+
+#: php-archive/page-custom.php:86
+msgid "This is the error message in the page-custom.php template."
+msgstr ""
+
+#: php-archive/page.php:67
+msgid "This is the error message in the page.php template."
+msgstr ""
+
+#: php-archive/search.php:8
+msgid "Search Results for:"
+msgstr ""
+
+#: php-archive/search.php:30
+msgid "Read more &raquo;"
+msgstr ""
+
+#: php-archive/search.php:37 post-formats/format-link.php:48
+#: post-formats/format-quote.php:48 post-formats/format.php:64
+msgid "Filed under: %1$s"
+msgstr ""
+
+#: php-archive/search.php:54
+msgid "Sorry, No Results."
+msgstr ""
+
+#: php-archive/search.php:57
+msgid "Try your search again."
+msgstr ""
+
+#: php-archive/search.php:60
+msgid "This is the error message in the search.php template."
+msgstr ""
+
+#: php-archive/searchform.php:3
+msgid "Search for:"
+msgstr ""
+
+#: php-archive/searchform.php:6
+msgid "Search"
+msgstr ""
+
+#: php-archive/sidebar.php:16
+msgid "This is a widget ready area. Add some and they will appear here."
+msgstr ""
+
+#: php-archive/single-custom_type.php:34 php-archive/taxonomy-custom_cat.php:33
+msgid ""
+"Posted <time class=\"updated\" datetime=\"%1$s\" "
+"itemprop=\"datePublished\">%2$s</time> by <span "
+"class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under %4$s."
+msgstr ""
+
+#: php-archive/single-custom_type.php:66
+msgid "Custom Tags:"
+msgstr ""
+
+#: php-archive/single-custom_type.php:86
+msgid "This is the error message in the single-custom_type.php template."
+msgstr ""
+
+#: php-archive/single.php:40
+msgid "This is the error message in the single.php template."
+msgstr ""
+
+#: php-archive/taxonomy-custom_cat.php:39
+msgid "Read More &raquo;"
+msgstr ""
+
+#: php-archive/taxonomy-custom_cat.php:63
+msgid "This is the error message in the taxonomy-custom_cat.php template."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "persianGULF"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://github.com/hamednourhani/persianGULF"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Wordpress Theme uses backbone.MarionetteJS. For more information about "
+"persianGULF or to view documentation, you can visit the <a "
+"href=\"https://github.com/hamednourhani/persianGULF/issues\" "
+"title=\"persianGULF Issues\">persianGULF Issues</a> page on Github."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "iTstar"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.itstar.ir"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Custom Page Example"
+msgstr ""

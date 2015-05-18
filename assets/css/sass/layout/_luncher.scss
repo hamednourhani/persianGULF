@@ -1,0 +1,88 @@
+
+.luncher{
+
+	
+	ul.luncher-list{
+		@include container;
+		padding:{
+			left: 0em;
+  			right: 0em;
+  		}
+  		margin:{
+  			top : 0.4em;
+  			bottom : 1em;
+  		}
+		li.app-item{
+			list-style : none;
+			display : inline;
+			@include span-columns(3,12);
+			@include nth-omega(4n);
+		}
+	}
+	@include at-breakpoint($small) {
+		height : 100%;
+		width : 50px !important;
+		max-width : 50px;
+		float : left;
+
+		& .layout	{
+			height : 100%;
+			padding : 0;
+		}
+		ul.luncher-list{
+			margin : 0;
+  		}
+		
+		& ul.luncher-list li.app-item{
+			display : block;
+			width : 50px;
+			float : none;
+			
+		}
+	  
+	}
+}
+li.app-item{
+	&>a{
+		display : inline-block;
+		text-align : center;
+		width : 100%;
+		height : 3.6em;
+		padding : {
+			top : 1em;
+			bottom : 1em;
+		}
+		background-color: #eee;
+		
+		&>i:before{
+			font-size : 1.6em;
+			vertical-align: baseline;
+
+		}
+	}
+	@include at-breakpoint($small) {
+		&>a{
+		width : 90%;
+		height : 2.8em;
+		padding : {
+			top : 0.8em;
+			bottom : 0.8em;
+		}
+		vertical-align: baseline;
+		margin :{
+			top : 0.2em;
+			//bottom : 0.1em;
+			left : 5%;
+			right : 5%;
+		}
+		
+		&>i:before{
+			font-size : 1.2em;
+			
+
+		}
+	}
+		
+	}
+	
+}

@@ -1,0 +1,75 @@
+/* header style */
+header.top-bar{
+	min-height : 1.7em;
+	background-color: #eee;
+	@include clearfix;
+	
+	.hero{
+		//float : left;
+		max-width : 80%;
+		margin :{
+			right : 0;
+		}
+		float : left;
+		display : inline-block;
+		@include span-columns(12,12);
+		
+		h1{
+			font-size : 0.9em;
+			margin :{
+				top : 0.6em;
+				bottom : auto;
+			}
+			
+
+		}
+		h2{
+			display :none;
+		}
+	}//hero
+	.navigation{
+		margin:{
+				top : 10px;
+		}
+		position : relative;
+		@include span-columns(12 ,12);
+		li{
+			list-style : none;
+		}
+				
+		a.menu-toggler{
+			//float : right;
+			top: -33px;
+			right :3%;
+			position : absolute;
+			&>i:before{
+				font:{
+					size : 150%;
+					padding : 10px;
+				}
+			}
+			
+					
+		}//menu-toggle
+		ul.menu-container{
+			display :none;
+			
+			margin:{
+				top : 0px;
+			}
+			& li{
+				border-bottom : 1px dashed #ddd;
+			}
+		}//menu-container
+		/*&>li:hover ul.menu-container{
+			display : block;
+			@include single-transition(all ,3s ,ease-out);
+		}*/
+		ul.menu-container.showmenu{
+			display : block;
+			
+		}
+	}//navigation
+
+		
+}//.top-bar

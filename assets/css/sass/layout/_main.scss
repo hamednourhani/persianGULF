@@ -1,0 +1,38 @@
+/* main style */
+.body-in-wrapper{
+	background-color: #ddd;
+}
+.main-container{
+	@include at-breakpoint($small) {
+		background-color: #fff;
+		margin-left : 50px;
+	}
+
+} /* main-container */
+
+.main{
+	height : 100%;
+	
+	.layout{
+		background-color: #fff;
+		.primary{
+			margin:{
+				top : .2em;
+			}
+			@include at-breakpoint($medium) {
+				@include single-transition(all ,3s ,ease-out);
+			  @include span-columns(8,12);
+			}
+		}/* primary */
+		.secondary{
+			margin:{
+				top : .2em;
+			}
+			@include at-breakpoint($medium){
+				@include single-transition(all ,3s ,ease-out);
+				@include span-columns(4 omega,12);
+			}
+		}/* secondary */
+	}/* layout */
+	
+}/* main */

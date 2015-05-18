@@ -1,0 +1,23 @@
+//susy setup ------------------------------------
+
+$total-columns : 12;
+$column-width : 4em;
+$gutter-width : 1em;
+$grid-padding : $gutter-width;
+
+@include border-box-sizing;
+
+$small : 30em;
+$medium : 45em;
+$larg : 75em;
+
+//.layout
+.layout {
+	@include container;
+	@include clearfix;
+	padding: 0 3%;
+	
+}
+
+
+	

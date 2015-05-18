@@ -1,0 +1,18 @@
+/******************************************************************
+Theme Name: persianGULF  
+Theme URI: http://github.com/hamednourhani/persianGULF
+Description: Wordpress Theme uses backbone.MarionetteJS. For more information about persianGULF or to view documentation, you can visit the <a href="https://github.com/hamednourhani/persianGULF/issues" title="persianGULF Issues">persianGULF Issues</a> page on Github. 
+Author: iTstar
+Author URI: http://www.itstar.ir
+Version: 0.1
+
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, gray, pink, purple, white, yellow, dark, light, two-columns, left-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: persianGULF
+********************************************************************
+*/
+
+.sticky {}          
+.gallery-caption {} 
+.bypostauthor {}    
