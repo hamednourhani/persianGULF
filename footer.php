@@ -1,4 +1,4 @@
-        <footer>
+        <footer id="app-footer">
                        
                 <span class="site-credit">powerd by wordpress @ 2015</span><!-- site-credit -->
                         

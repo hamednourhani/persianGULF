@@ -47,7 +47,7 @@ requirejs.config({
   }
 }); /*requirejs.config*/
 
-require(['core','core/core_functions','core/core_router','jquery'], function(persianGULF,coreFuncs,coreRouter,$){
+require(['app','core/core_functions','core/core_router','jquery'], function(persianGULF,coreFuncs,coreRouter,$){
     
   persianGULF.on("start", function(){
      if(Backbone.history){

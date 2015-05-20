@@ -1,4 +1,4 @@
-<div class="secondary">
+<div class="secondary" id="app-sidebar">
     <aside>
         <h4 class="widget-title">title 1</h4>
         <div class="widget content">

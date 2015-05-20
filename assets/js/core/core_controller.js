@@ -1,4 +1,4 @@
-define(["core"], function(persianGULF){
+define(["app"], function(persianGULF){
 	"use strict" 
 	
 	persianGULF.module("coreController", function(coreController, persianGULF,

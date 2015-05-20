@@ -1,5 +1,5 @@
 define([
-        "core",
+        "app",
         "marionette",
         ],
          function(persianGULF,Marionette){

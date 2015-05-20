@@ -1,8 +1,9 @@
 define([
 		'marionette',
 		'jquery',
-		'core',
-		'core/core_functions'
+		'app',
+		'core/core_functions',
+		'core/core_controller'
 		],
 		 function(Marionette,$,persianGULF,coreFuncs){
 		

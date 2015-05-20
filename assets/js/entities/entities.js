@@ -1,4 +1,4 @@
-define(["core","jquery","backbone"], function(persianGULF,$,Backbone){
+define(["app","jquery","backbone"], function(persianGULF,$,Backbone){
   "use strict"
   console.log('entities is running');
 

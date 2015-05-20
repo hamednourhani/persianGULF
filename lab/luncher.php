@@ -1,6 +1,6 @@
 <?  /**/ ?>
 
-<div class="luncher">
+<div class="luncher" id="app-luncher">
             <div class="layout">       
                 <ul class="luncher-list">
                     <li class="app-item item1">

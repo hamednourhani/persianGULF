@@ -1,5 +1,5 @@
 define([
-	"core",
+	"app",
 	"entities/entities",
 	"apps/single/single_view",
 	"common/common_views"
