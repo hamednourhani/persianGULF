@@ -1,6 +1,6 @@
 define([
         "jquery",
-        "apps",
+        "core",
         "entities/entities",
         "apps/archive/archive_view",
         "common/common_views",

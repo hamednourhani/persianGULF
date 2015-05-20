@@ -1,26 +1,20 @@
-define(["marionette",'jquery'], function(Marionette,$){
-	"use strict" 
-	console.log('apps is running');
-	
-	var persianGULF = new Marionette.Application();
+define(["core"], function(persianGULF){
+  "use strict" 
 
-	persianGULF.addRegions({
-	    primaryRegion: "#primary",
-	    postRegion : "#post-area"
-	});
+persianGULF.core_functions = core_functions || {};
 
-	persianGULF.navigate = function(route, options){
+persianGULF.core_functions.navigate = function(route, options){
 	    options || (options = {});
 	    
 	    Backbone.history.navigate(route, options);
 	 };
  
-	 persianGULF.getCurrentRoute = function(){
+	 persianGULF.core_functions.getCurrentRoute = function(){
 	   return Backbone.history.fragment;
 	   console.log("fragment"+Backbone.history.fragment);
 	 };
 
-	 persianGULF.isExternalStringReplace = function(url) {
+	 persianGULF.core_functions.isExternalStringReplace = function(url) {
 	      function domain(url) {
 	          return url.replace('http://','').replace('https://','').split('/')[0];
 	      };
@@ -28,7 +22,7 @@ define(["marionette",'jquery'], function(Marionette,$){
 	      return domain(location.href) !== domain(url);
     };
     
-	 persianGULF.retrieveParams = function(currentRoute){
+	 persianGULF.core_functions.retrieveParams = function(currentRoute){
      	
           var req_defer = $.Deferred();
           var req_options = {requested_uri:currentRoute};
@@ -51,7 +45,7 @@ define(["marionette",'jquery'], function(Marionette,$){
     
     }; /*retrieveParams*/
 
-     persianGULF.convertParams = function(ObjParams){
+     persianGULF.core_functions.convertParams = function(ObjParams){
           if (!_.isEmpty(ObjParams)){
             
             var req_params = "";
@@ -83,8 +77,7 @@ define(["marionette",'jquery'], function(Marionette,$){
           }
           return req_params;
         }; /*convertParams*/
-	 
- 	
- 	return persianGULF;
 
-}); /*requireJS define*/
+        return persianGULF.core_functions;
+
+}); /*requireJs define*/

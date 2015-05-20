@@ -51,14 +51,9 @@ requirejs.config({
   }
 }); /*requirejs.config*/
 
-require(['apps','apps/archive/archive_app','jquery'], function(persianGULF,PostsApp,$){
+require(['core','core/core_router','jquery'], function(persianGULF,PostsApp,$){
   
-  /*persianGULF.on("start", function(){
-      persianGULF.postsApp.List.Controller.listposts();
-    });*/
-  
-  
-  
+    
   persianGULF.on("start", function(){
    if(Backbone.history){
      Backbone.history.start({
@@ -81,12 +76,7 @@ require(['apps','apps/archive/archive_app','jquery'], function(persianGULF,Posts
   
   $('document').ready(function(){
     persianGULF.start();
-    /*$('document a').on("click",function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      persianGULF.showTarget(e);
-
-    });*/
+    
   });
 
 }); /*require*/

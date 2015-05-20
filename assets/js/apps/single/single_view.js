@@ -1,4 +1,4 @@
-define(["apps","marionette"], function(persianGULF,Marionette){
+define(["core","marionette"], function(persianGULF,Marionette){
  "use strict" 
   console.log('single_view is running');
 

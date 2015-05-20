@@ -10,19 +10,14 @@
 
  ?>
 	 
-	<script type="text/template" id="post-list-layout">
-	   <div id="breadcrumb-region"></div>
-	   <div id="posts-region"></div>
-	 </script> <!-- post-list-layout -->
+	
 
-	 <script type="text/template" id="post-single-layout">
-	   <div id="breadcrumb-region"></div>
-	   <div id="post-region"></div>
-	 </script> <!-- post-list-layout -->
-
-	 <script type="text/template" id="breadcrumb-panel">
-	  	<span> This work as breadcrumb </span>
-	 </script><!-- breadcrumb-panel -->
+	<script id="main-layout" type="text/template">
+	  <section>
+	    <navigation id="menu">...</navigation>
+	    <article id="content">...</article>
+	  </section>
+	</script>
 
 	<script type="text/template" id="article-excerpt">
 	    

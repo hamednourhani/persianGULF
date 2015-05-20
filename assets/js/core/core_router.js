@@ -1,13 +1,13 @@
-define(['marionette','apps','apps/archive/archive_controller'], function(Marionette,persianGULF){
+define(['marionette','core'], function(Marionette,persianGULF){
 	"use strict" 
 	
 	
 
-	persianGULF.module("PostsApp", function(PostsApp, persianGULF,
+	persianGULF.module("coreRouter", function(coreRouter, persianGULF,
 	  Backbone, Marionette, $, _){
 	    
 
-	    PostsApp.Router = Marionette.AppRouter.extend({
+	    coreRouter.Router = Marionette.AppRouter.extend({
 	      
 	      appRoutes: {
 	        "": "showFirst",
@@ -41,12 +41,12 @@ define(['marionette','apps','apps/archive/archive_controller'], function(Marione
 	      
 	  persianGULF.on("before:start",function(){
 	  	console.log('contacts_app is running');
-	     new PostsApp.Router({
+	     new coreRouter.Router({
 	      controller: API
 	    });
 	  }); /*before:start*/
 
 	 }); /*PostsApp*/
 
-	return persianGULF.PostsApp;	
+	return persianGULF.coreRouter;	
 }); /*requireJS Define*/

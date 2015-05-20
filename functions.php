@@ -117,9 +117,17 @@ function persianGULF_scripts() {
 wp_localize_script( 'urlHelper', 'pgAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));        
 wp_enqueue_script('urlHelper' );*/
 
+$coreHelper = array(
+ 					'homeUrl' => esc_url(home_url()),
+ 					);
 
 
-wp_enqueue_script('requireJS', get_template_directory_uri().'/assets/js/vendor/require.js',array('jquery','underscore','json2','backbone'),'',true);
+wp_regiter_script('requireJS', get_template_directory_uri().'/assets/js/vendor/require.js',array('jquery','underscore','json2','backbone'),'',true);
+wp_regiter_script( 'PGcore', get_template_directory_uri().'/assets/js/core.js', array('requireJS'), "", true );
+wp_localize_script( 'PGcore', 'coreHelper', $coreHelper );
+
+wp_enqueue_script('PGcore');
+
  }
 
 add_action('wp_enqueue_scripts','persianGULF_scripts');
