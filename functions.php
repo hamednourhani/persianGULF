@@ -123,10 +123,10 @@ $coreHelper = array(
 
 
 wp_regiter_script('requireJS', get_template_directory_uri().'/assets/js/vendor/require.js',array('jquery','underscore','json2','backbone'),'',true);
-wp_regiter_script( 'PGcore', get_template_directory_uri().'/assets/js/core.js', array('requireJS'), "", true );
-wp_localize_script( 'PGcore', 'coreHelper', $coreHelper );
+wp_regiter_script( 'core_helper', get_template_directory_uri().'/assets/js/core_helper.js', array('requireJS'), "", true );
+wp_localize_script( 'core_helper', 'coreHelper', $coreHelper );
 
-wp_enqueue_script('PGcore');
+wp_enqueue_script('core_helper');
 
  }
 
