@@ -1,8 +1,13 @@
-define(['marionette','core'], function(Marionette,persianGULF){
-	"use strict" 
+define([
+		'marionette',
+		'jquery',
+		'core',
+		'core/core_functions'
+		],
+		 function(Marionette,$,persianGULF,coreFuncs){
+		
+		"use strict" 
 	
-	
-
 	persianGULF.module("coreRouter", function(coreRouter, persianGULF,
 	  Backbone, Marionette, $, _){
 	    
@@ -31,7 +36,7 @@ define(['marionette','core'], function(Marionette,persianGULF){
 		     
 		     showPosts: function(route){
 		     		     	
-		     	var params = persianGULF.retrieveParams(route);
+		     	var params = coreFuncs.retrieveParams(route);
 	            
 	            $.when(params).done(function(params){
 	            	PostsApp.List.Controller.listPosts(params);

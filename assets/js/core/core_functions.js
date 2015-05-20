@@ -1,29 +1,29 @@
-define(["core"], function(persianGULF){
+define(["core",'jquery','backbone'], function(persianGULF,$,Backbone){
   "use strict" 
 
-      persianGULF.module("CoreFunctions", function(CoreFunctions, persianGULF,
-          Backbone, Marionette, $, _){
+    persianGULF.module("coreFuncs", function(coreFuncs, persianGULF,
+        Backbone, Marionette, $, _){
 
-        navigate : function(route, options){
+      coreFuncs.navigate = function(route, options){
       	    options || (options = {});
       	    
       	    Backbone.history.navigate(route, options);
-      	 },
+      	 };
        
-      	 getCurrentRoute : function(){
+      coreFuncs.getCurrentRoute = function(){
       	   return Backbone.history.fragment;
       	   console.log("fragment"+Backbone.history.fragment);
-      	 },
+      	 };
 
-      	 isExternalStringReplace : function(url) {
+      coreFuncs.isExternalStringReplace = function(url) {
       	      function domain(url) {
       	          return url.replace('http://','').replace('https://','').split('/')[0];
       	      };
       	  
       	      return domain(location.href) !== domain(url);
-          },
+          };
           
-      	 retrieveParams : function(currentRoute){
+      coreFuncs.retrieveParams = function(currentRoute){
            	
                 var req_defer = $.Deferred();
                 var req_options = {requested_uri:currentRoute};
@@ -31,7 +31,7 @@ define(["core"], function(persianGULF){
         
                 console.log('req_optoins : '+ JSON.stringify(req_options));
                 
-            require(['urlhelper'],function(UrlHelper){
+            
                $.when(this.reqQueryVars(req_options)).then(function(response){
                   console.log('UrlHelper.query_vars : '+ response);
                   response = response;
@@ -41,12 +41,12 @@ define(["core"], function(persianGULF){
                   console.log('there was a problem in url parsing. Error : '+ ajax_err);
                   req_defer.resolve(ajax_err);
                 });
-            });
+            
                 return req_defer.promise();
           
-          }, /*retrieveParams*/
+          }; /*retrieveParams*/
 
-           convertParams : function(ObjParams){
+        coreFuncs.convertParams = function(ObjParams){
                 if (!_.isEmpty(ObjParams)){
                   
                   var req_params = "";
@@ -79,7 +79,7 @@ define(["core"], function(persianGULF){
                 return req_params;
               }, /*convertParams*/
 
-          reqQueryVars : function(options){
+      coreFuncs.reqQueryVars = function(options){
 
             var ajax_defer = $.Deferred();
             var options = options || {};
@@ -129,10 +129,11 @@ define(["core"], function(persianGULF){
               });
             
             return ajax_defer.promise();
-         }, /*reqQueryVars*/
+         }; /*reqQueryVars*/
 
-     }); /*persianGULF.CoreFunctions*/
+      
+   }); /*persianGULF.coreFuncs*/
 
-        return persianGULF.CoreFunctions;
+        return persianGULF.coreFuncs;
 
 }); /*requireJs define*/

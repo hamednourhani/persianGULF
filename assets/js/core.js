@@ -4,11 +4,13 @@ define(["marionette"], function(Marionette){
 	
 	var persianGULF = new Marionette.Application();
 
+	
 	persianGULF.addRegions({
 	    primaryRegion: "#primary",
 	    postRegion : "#post-area"
 	});
 
+	
 	return persianGULF;
 
 }); /*requireJS define*/

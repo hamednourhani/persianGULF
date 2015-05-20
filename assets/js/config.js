@@ -22,8 +22,7 @@ requirejs.config({
     json2: "vendor/json2",
     marionette: "vendor/backbone.marionette.min",
     babysitter : "vendor/backbone.babysitter.min",
-    urlhelper : "common/pG_url_helper"
-       
+           
   },
 
   shim: {
@@ -41,39 +40,35 @@ requirejs.config({
       deps: ["backbone"],
       exports: "Marionette"
     },
-    urlhelper : {
-      deps :["jquery"],
-      exports : "UrlHelper"
-    }
+    
     
 
     
   }
 }); /*requirejs.config*/
 
-require(['core','core/core_router','jquery'], function(persianGULF,PostsApp,$){
-  
+require(['core','core/core_functions','core/core_router','jquery'], function(persianGULF,coreFuncs,coreRouter,$){
     
   persianGULF.on("start", function(){
-   if(Backbone.history){
-     Backbone.history.start({
-      root : '',
-      pushState : true,
-      hashChange : false
-      //silent: true,
-      //root: ""
-     });
-       
-     if(this.getCurrentRoute() === ""){
-       this.navigate("");
-       
-     } else {
-      var currentRoute = this.getCurrentRoute();
-      this.navigate(currentRoute);
+     if(Backbone.history){
+       Backbone.history.start({
+        root : '',
+        pushState : true,
+        hashChange : false
+        //silent: true,
+        //root: ""
+       });
+         
+       if(coreFuncs.getCurrentRoute() === ""){
+         coreFuncs.navigate("");
+         
+       } else {
+        var currentRoute = coreFuncs.getCurrentRoute();
+        coreFuncs.navigate(currentRoute);
+       }
      }
-   }
-  }); /*on before:start*/ 
-  
+    }); /*on before:start*/ 
+
   $('document').ready(function(){
     persianGULF.start();
     
