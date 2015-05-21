@@ -48,9 +48,15 @@ define([
                               coreFuncs.navigate(e.target.pathname);
                             }
                             var currentView = this;
+                            console.log('currentView : '+currentView);
                             $.when(params).done(function(params){
                                 console.log("params done :"+params);
-                                currentView.trigger("params:show", params);
+                                console.log('currentView : '+currentView);
+                                var options = {
+                                          params : params,
+                                    };
+
+                                currentView.triggerMethod("change:area", options);
                             });
                   }
               }

@@ -18,8 +18,10 @@ define([
 
 					childEvents: {
 				      'change:area': function (childView, options) {
+				        
 				        console.log('some areas requested change : '+childView+" ,with options : "+options);
-				        Index.Controller.changeAreas(areas);
+				        				        
+				        Index.Controller.changeArea(options);
 				      }
 				    },
 
@@ -34,13 +36,13 @@ define([
 				var params = coreFuncs.retrieveParams(options.route);
 	         
 	            $.when(params).done(function(params){
-	               ListController.listPosts(params)
+	               ListController.listPosts(params);
 	            });
 							
 			}, /*fillAreas*/
 
-			changeAreas : function(areas){
-
+			changeArea : function(options){
+				ListController.listPosts(options.params);
 			},
 		};
 
