@@ -17,12 +17,12 @@ define(["app"], function(persianGULF){
 		  }
 		});
 
-		/*var layoutView = new AppLayoutView();
-		layoutView.render();*/
+		
 
+		
 	});
 
-	return persianGULF.indexLayout;
+	return persianGULF.Index;
 	
 
 }); /*requireJS define*/

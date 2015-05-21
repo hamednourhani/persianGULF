@@ -1,9 +1,11 @@
 define([
         "app",
         "marionette",
+        "core/core_functions"
         ],
-         function(persianGULF,Marionette){
-  "use strict" 
+         function(persianGULF,Marionette,coreFuncs){
+          "use strict" 
+  
   console.log('list_view is running');
   
   persianGULF.module("PostsApp.List", function(List, persianGULF,
@@ -28,7 +30,7 @@ define([
              e.stopPropagation();
              var pageData = {};
              
-                 if(persianGULF.isExternalStringReplace(e.target.href)){
+                 if(coreFuncs.isExternalStringReplace(e.target.href)){
                       window.open(e.target.href, '_blank');
                  } else {
                       
@@ -36,7 +38,7 @@ define([
                       
                         this.trigger("post:show", this.model);
                         var newRoute = this.model.attributes.link.replace(/^.*\/\/[^\/]+/, '');
-                        persianGULF.navigate(newRoute);
+                        coreFuncs.navigate(newRoute);
                       
                       } else {
 
@@ -50,13 +52,13 @@ define([
                                var params = {tag : element.attr('data-tag')};   
                             
                             }else{
-                              var params = persianGULF.retrieveParams(e.target.pathname);
-                              persianGULF.navigate(e.target.pathname);
+                              var params = coreFuncs.retrieveParams(e.target.pathname);
+                              coreFuncs.navigate(e.target.pathname);
                             }
-                            var currentModel = this;
+                            var currentView = this;
                             $.when(params).done(function(params){
                                 console.log("params done :"+params);
-                                currentModel.trigger("params:show", params);
+                                currentView.trigger("params:show", params);
                             });
                   }
               }

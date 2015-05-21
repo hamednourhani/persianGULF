@@ -5,19 +5,19 @@ define([
 		'core/core_functions',
 		'core/core_controller'
 		],
-		 function(Marionette,$,persianGULF,coreFuncs){
+		 function(Marionette,$,persianGULF,coreFuncs,coreController){
 		
 		"use strict" 
 	
-	persianGULF.module("coreRouter", function(coreRouter, persianGULF,
+	persianGULF.module("Core.coreRouter", function(coreRouter, persianGULF,
 	  Backbone, Marionette, $, _){
 	    
 
 	    coreRouter.Router = Marionette.AppRouter.extend({
 	      
 	      appRoutes: {
-	        "": "showFirst",
-	        "*route" : "showPosts",
+	        "": "makeLayout",
+	        "*route" : "makeLayout",
 	        
 	      },
 
@@ -28,8 +28,14 @@ define([
 	        
 	    var API = {
 	     
+		     options : {},
 		     makeLayout : function(route){
-		     	 coreController.Controller.makeLayout();
+		     	
+		     	if(route === undefined) 
+		     		var route = "";
+		     	 
+		     	 this.options.route = route;
+		     	 coreController.Funcs.makeLayout(this.options);
 		     },
 		     /*showFirst: function(route){
 		     		     	
@@ -49,7 +55,7 @@ define([
  	 	}; /*API*/
 	      
 	  persianGULF.on("before:start",function(){
-	  	console.log('contacts_app is running');
+	  	console.log('coreRouter is running');
 	     new coreRouter.Router({
 	      controller: API
 	    });
@@ -57,5 +63,5 @@ define([
 
 	 }); /*PostsApp*/
 
-	return persianGULF.coreRouter;	
+	return persianGULF.Core.coreRouter;	
 }); /*requireJS Define*/

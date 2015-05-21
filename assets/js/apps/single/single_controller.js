@@ -21,14 +21,20 @@ define([
 	            model: model
 	        });
 
-          	         
-            persianGULF.postRegion.show(singleView);
+          	require(['apps/index/index_layout'],function(Index){
+                      Index.indexLayout.postArea.show(singleView);
+            });        
+            
 	     }, /*showPost*/
 	     show404 : function(){
 	     	var singleView = new Single.Post({
 	     		template : "#article-404",
 	     	});
-	     	persianGULF.postRegion.show(singleView);
+	     	
+	     	require(['apps/index/index_layout'],function(Index){
+                      Index.indexLayout.postArea.show(singleView);
+            });
+	     	
 	     },
 
 	   } /*Single.Controller*/

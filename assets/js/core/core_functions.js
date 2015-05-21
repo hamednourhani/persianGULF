@@ -1,7 +1,7 @@
 define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
   "use strict" 
 
-    persianGULF.module("coreFuncs", function(coreFuncs, persianGULF,
+    persianGULF.module("Core.coreFuncs", function(coreFuncs, persianGULF,
         Backbone, Marionette, $, _){
 
       coreFuncs.navigate = function(route, options){
@@ -31,9 +31,10 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
         
                 console.log('req_optoins : '+ JSON.stringify(req_options));
                 
-            
-               $.when(this.reqQueryVars(req_options)).then(function(response){
-                  console.log('UrlHelper.query_vars : '+ response);
+                var queryVars = this.reqQueryVars(req_options);
+               
+               $.when(queryVars).then(function(response){
+                  console.log('reponse : '+ response);
                   response = response;
                   req_defer.resolve(response);
                 },function(ajax_err){
@@ -134,6 +135,6 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
       
    }); /*persianGULF.coreFuncs*/
 
-        return persianGULF.coreFuncs;
+        return persianGULF.Core.coreFuncs;
 
 }); /*requireJs define*/

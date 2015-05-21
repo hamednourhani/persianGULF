@@ -1,17 +1,24 @@
-define(["app"], function(persianGULF){
+define(["app","apps/index/index_controller"], function(persianGULF,Index){
 	"use strict" 
 	
-	persianGULF.module("coreController", function(coreController, persianGULF,
+	persianGULF.module("Core.coreController", function(coreController, persianGULF,
         Backbone, Marionette, $, _){
 
-		coreController.Controller = {
-			makeLayout : function(){
-				Index.controller.ownLayout();
+		coreController.Funcs = {
+			options : {},
+			
+			makeLayout : function(options){
+			
+				this.options = options;
+				
+				Index.Controller.ownLayout();
+				
+				Index.Controller.fillAreas(this.options);
 			},
 		};
 	
 	}); /*persianGULF.Core.Controller*/
 
-	return persianGULF.coreController;
+	return persianGULF.Core.coreController;
 
 }); /*requireJS define*/

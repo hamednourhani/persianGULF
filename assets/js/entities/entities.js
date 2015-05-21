@@ -1,5 +1,12 @@
-define(["app","jquery","backbone"], function(persianGULF,$,Backbone){
-  "use strict"
+define([
+        "app",
+        "jquery",
+        "backbone",
+        "core/core_functions",
+        ],
+         function(persianGULF,$,Backbone,coreFuncs){
+        "use strict"
+  
   console.log('entities is running');
 
   persianGULF.module("Entities", function(Entities, persianGULF,
@@ -7,8 +14,9 @@ define(["app","jquery","backbone"], function(persianGULF,$,Backbone){
 
      Entities.post = Backbone.Model.extend({});
 
-     Entities.homeUrl = $('meta#siteUrl').attr('content');
-     Entities.jsonUrl = Entities.homeUrl + '/wp-json/posts';
+     Entities.homeUrl = $("link[rel~='https://github.com/WP-API/WP-API']").attr('href');
+     //Entities.jsonUrl = Entities.homeUrl + '/wp-json/posts';
+     Entities.jsonUrl = Entities.homeUrl + '/posts';
           console.log(Entities.homeUrl,Entities.jsonUrl);
    
      Entities.postCollection = Backbone.Collection.extend({
@@ -35,7 +43,7 @@ define(["app","jquery","backbone"], function(persianGULF,$,Backbone){
        options : {},
        
        getPostEntities: function(ObjParams){
-           API.options.req_params = persianGULF.convertParams(ObjParams); 
+           API.options.req_params = coreFuncs.convertParams(ObjParams); 
            var defer = $.Deferred();
            var posts = new Entities.postCollection(API.options);
             
