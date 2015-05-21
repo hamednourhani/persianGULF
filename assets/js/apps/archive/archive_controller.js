@@ -36,36 +36,42 @@ define([
               var fetchPosts = persianGULF.request("post:entities",ObjParams);
                
                $.when(fetchPosts).done(function(posts){
-                  List.Controller.showPosts(posts);
+                  List.Controller.showPosts(posts,ObjParams);
                });
           },/*preparePosts*/
 
-          showPosts : function(posts){
+          showPosts : function(posts,ObjParams){
                            //Posts List View 
-              if(posts.length > 1){
-                
-                  var postsListView = new List.posts({
-                    collection: posts
-                  });
-                  postsListView.on("childview:post:show",function(childView, model){
-                    //$('primary div.list-view').fadeOut();
-                    persianGULF.PostsApp.Single.Controller.showPost(model);
+            if(posts.length !== 0){
+                  
+                  var ObjParams_keys =  _.keys(ObjParams);
+                  var archive_vars = ['author','author_name','tag','cat','category_name','term','taxonomy','s','search'];
+                  if(posts.length > 1 || (ObjParams.author || ObjParams.tag || ObjParams.category_name)){
+                    //s,search,cat,author_name,term,taxonomy
                     
-                  });
+                      var postsListView = new List.posts({
+                        collection: posts
+                      });
+                      postsListView.on("childview:post:show",function(childView, model){
+                        //$('primary div.list-view').fadeOut();
+                        persianGULF.PostsApp.Single.Controller.showPost(model);
+                        
+                      });
 
-                  //Posts List Show
-                  require(['apps/index/index_layout'],function(Index){
-                      Index.indexLayout.postArea.show(postsListView);
-                  });
-               
-                } else if(posts.length === 1) {
-                                
-                       persianGULF.PostsApp.Single.Controller.showPost(posts.models[0]);
+                      //Posts List Show
+                      require(['apps/index/index_layout'],function(Index){
+                          Index.indexLayout.postArea.show(postsListView);
+                      });
+                   
+                    } else {
+                                    
+                           persianGULF.PostsApp.Single.Controller.showPost(posts.models[0]);
+                    }
                      
-                } else {
-                      persianGULF.PostsApp.Single.Controller.show404();
-                    
-                }
+              } else {
+                    persianGULF.PostsApp.Single.Controller.show404();
+                  
+              }
 
           }, /*showPosts*/
          

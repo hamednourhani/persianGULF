@@ -20,8 +20,6 @@ define([
 				      'change:area': function (childView, options) {
 				        
 				        console.log('some areas requested change : '+childView+" ,with options : "+options);
-				        
-				        options.area = "postArea";				        
 				        Index.Controller.changeArea(options);
 				      }
 				    },
@@ -44,8 +42,18 @@ define([
 
 			changeArea : function(options){
 				
-				if(options.area && options.area === "postArea")
-					ListController.listPosts(options.params);
+				if(options.area){
+					switch(options.area){
+					 	
+					case "postArea" :
+						ListController.listPosts(options.params);
+						break;
+
+					default :
+						break;
+
+					} /*switch*/
+				} /*endif*/
 			},
 		};
 

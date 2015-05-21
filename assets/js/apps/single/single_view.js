@@ -54,6 +54,7 @@ define([
                                 console.log('currentView : '+currentView);
                                 var options = {
                                           params : params,
+                                          area : "postArea",
                                     };
 
                                 currentView.triggerMethod("change:area", options);

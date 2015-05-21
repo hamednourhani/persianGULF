@@ -60,6 +60,7 @@ define([
                                 console.log("params done :"+params);
                                 var options = {
                                           params : params,
+                                          area : "postArea",
                                     };
                                 currentView.triggerMethod("change:area", options);
                             });

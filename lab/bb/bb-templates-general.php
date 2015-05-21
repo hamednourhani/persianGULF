@@ -78,17 +78,54 @@
 	 <script type="text/template" id="article-content">
 	    
 	        <header class="post-title">
-	            <h3>
+	            <h1>
 	            	<%= title %>
-	            </h3>
+	            </h1>
 	        </header><!-- post-title -->
 	        <div class="post-content">
 	            <%= content %>
 	        </div><!-- post-content -->
 	        <footer class="post-detail">
-	            <em><a href="<%= author.meta.links.archives %>" ><%= author.name %></a> </em>
-	            <em>Data - </em>
-	            <em>tags </em>
+	           <ul class = "meta-list" >
+		            <li>
+		            	<a href="<%= author.URL %>" class="data-author author-link p-author h-card" data-author-id="<%= author.ID %>">
+		            		<% if(author.name){ print(author.name) }else{ print(author.username)} %>
+		            	</a> 
+		            </li>
+		            <li>
+		            	<a href="<%= link %>" class="data-date meta-date dt-published">
+		            		<% print(date.split("T")[0]) %>
+		            	</a>
+		            </li>
+		            
+		            <% if(terms.category){ %>
+		            <li> 
+		            	<ul>
+		            		<% _.each(terms.category,function(cat){ %>
+		            			<li>
+		            				<a href="#" class="data-cat" data-cat="<%= cat.slug %>"><%= cat.name %></a>
+		            			</li>
+	            			<% },this); %>
+		            	</ul>
+		            </li> 
+		            <% }%>
+		            
+		            <% if(terms.tag){ %>
+		            <li>99+
+		            	<ul>
+		            		 <% _.each(terms.tag,function(tag){ %>
+		            			<li>
+		            				<a href="#" class="data-tag" data-tag="<%= tag.slug %>"><%= tag.name %></a>
+		            			</li>
+	            			<% },this);%>
+		            	</ul> 
+		            </li>  
+		            <% }%>
+		            
+		            <li>
+		            	<a href="#" class="data-comment" data-comment="<%= comment_status %>">comments</a>
+		            </li>
+		       </ul> 
 	        </footer><!-- post-detail -->
 	    
 
