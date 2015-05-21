@@ -28,13 +28,16 @@ define([
 	        
 	    var API = {
 	     
-		     showFirst: function(route){
+		     makeLayout : function(route){
+		     	 coreController.Controller.makeLayout();
+		     },
+		     /*showFirst: function(route){
 		     		     	
 		     	var params = "";
 	            PostsApp.List.Controller.listPosts(params);
 			    
-		     }, /*showFirst*/
-		     
+		     }, 
+
 		     showPosts: function(route){
 		     		     	
 		     	var params = coreFuncs.retrieveParams(route);
@@ -42,7 +45,7 @@ define([
 	            $.when(params).done(function(params){
 	            	PostsApp.List.Controller.listPosts(params);
 			    });
-		     }, /*listPosts*/
+		     }, */
  	 	}; /*API*/
 	      
 	  persianGULF.on("before:start",function(){

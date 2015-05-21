@@ -4,6 +4,11 @@ define(["app"], function(persianGULF){
 	persianGULF.module("coreController", function(coreController, persianGULF,
         Backbone, Marionette, $, _){
 
+		coreController.Controller = {
+			makeLayout : function(){
+				Index.controller.ownLayout();
+			},
+		};
 	
 	}); /*persianGULF.Core.Controller*/
 

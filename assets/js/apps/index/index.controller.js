@@ -4,6 +4,16 @@ define(["app"], function(persianGULF){
 	persianGULF.module("Index", function(Index, persianGULF,
    Backbone, Marionette, $, _){
 
+		Index.Controller ={
+
+			ownLayout : function(){
+
+				var indexLayout = new Index.IndexLaout({
+
+				});	
+			},
+		};
+
 	});
 
 	return persianGULF.Index;

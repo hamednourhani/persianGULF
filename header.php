@@ -19,7 +19,7 @@
        <header class="top-bar" id="app-header">
            <section class="layout">
                
-               <div class="hero" id="banner" role="banner">
+               <div class="hero" id="app-banner" role="banner">
                    
                        <hgroup>
                             <h1 class="site-title"><a href="<?php echo esc_url(home_url()); ?>">persianGULF Wordpress Theme</a></h1>
@@ -28,7 +28,7 @@
                   
                </div><!-- hero -->
 
-               <div class="navigation">
+               <div class="navigation" id="app-navigation">
                     <a class="menu-toggler"><i class="fa fa-navicon"></i></a>
                     <li>
                         <ul class="menu-container">

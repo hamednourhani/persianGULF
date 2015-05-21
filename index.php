@@ -8,7 +8,7 @@
                  
             <section class="layout">
                 <div class="primary" id="primary">
-                    <div class="post-area" id="post-area">
+                    <div class="post-area" id="app-post-area">
 
                     </div>                   
                 </div><!-- primary -->

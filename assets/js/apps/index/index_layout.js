@@ -1,15 +1,19 @@
 define(["app"], function(persianGULF){
 	"use strict" 
 
-	persianGULF.module("Index.Layout", function(Layout, persianGULF,
+	persianGULF.module("Index", function(Index, persianGULF,
    Backbone, Marionette, $, _){
 
-		var indexLayout = Backbone.Marionette.LayoutView.extend({
-		  template: "#main-layout",
+		Index.IndexLayout = Backbone.Marionette.LayoutView.extend({
+		  template: false,
+		  el : "#app-body",
 
 		  regions: {
-		    menu: "#menu",
-		    content: "#content"
+		    header: "#app-header",
+		    luncher: "#app-luncher",
+		    postArea : "#app-post-area",
+		    sidebar : "#app-sidebar",
+		    footer : "#app-footer",
 		  }
 		});
 
@@ -18,7 +22,7 @@ define(["app"], function(persianGULF){
 
 	});
 
-	return persianGULF.Index.Layout;
+	return persianGULF.indexLayout;
 	
 
 }); /*requireJS define*/
