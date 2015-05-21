@@ -20,7 +20,8 @@ define([
 				      'change:area': function (childView, options) {
 				        
 				        console.log('some areas requested change : '+childView+" ,with options : "+options);
-				        				        
+				        
+				        options.area = "postArea";				        
 				        Index.Controller.changeArea(options);
 				      }
 				    },
@@ -42,7 +43,9 @@ define([
 			}, /*fillAreas*/
 
 			changeArea : function(options){
-				ListController.listPosts(options.params);
+				
+				if(options.area && options.area === "postArea")
+					ListController.listPosts(options.params);
 			},
 		};
 

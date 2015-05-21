@@ -53,12 +53,6 @@ define([
                     
                   });
 
-                  postsListView.on("childview:params:show",function(childView, params){
-                    //$('primary div.list-view').fadeOut();
-                    persianGULF.PostsApp.List.Controller.listPosts(params);
-                    
-                  });
-
                   //Posts List Show
                   require(['apps/index/index_layout'],function(Index){
                       Index.indexLayout.postArea.show(postsListView);

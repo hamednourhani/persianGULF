@@ -58,7 +58,10 @@ define([
                             var currentView = this;
                             $.when(params).done(function(params){
                                 console.log("params done :"+params);
-                                currentView.trigger("params:show", params);
+                                var options = {
+                                          params : params,
+                                    };
+                                currentView.triggerMethod("change:area", options);
                             });
                   }
               }
