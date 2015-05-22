@@ -34,33 +34,37 @@ define([
                       
                     } else {
 
-                          if(element.hasClass('data-author')){
-                            var params = {author : element.attr('data-author-id'),is_singular : false};
+                            if(element.hasClass('data-author')){
+                              var params = {author : element.attr('data-author-id'),is_singular : false};
+                              var newRoute = coreFuncs.reqPermalink({permalink_type : "author", permalink_id : element.attr('data-author-id')});
 
-                          } else if(element.hasClass('data-cat')){
-                             var params = {category_name : element.attr('data-cat'),is_singular : false};
-                          
-                          } else if(element.hasClass('data-tag')){
-                             var params = {tag : element.attr('data-tag'),is_singular : false};   
-                          
-                          }else{
-                            var params = coreFuncs.retrieveParams(e.target.pathname);
-                            coreFuncs.navigate(e.target.pathname);
-                          }
-                          var currentView = this;
-                          console.log('currentView : '+currentView);
-                          $.when(params).done(function(params){
-                              console.log("params done :"+params);
-                              console.log('currentView : '+currentView);
-                              var options = {
-                                        params : params,
-                                        area : "postArea",
-                                  };
-
-                              currentView.triggerMethod("change:area", options);
-                          });
-                  }
+                            } else if(element.hasClass('data-cat')){
+                               var params = {category_name : element.attr('data-cat'),is_singular : false};
+                               var newRoute = element.attr('href').replace(/^.*\/\/[^\/]+/, '');
+                            
+                            } else if(element.hasClass('data-tag')){
+                               var params = { tag : element.attr('data-tag'),is_singular : false};   
+                               var newRoute = element.attr('href').replace(/^.*\/\/[^\/]+/, '');
+                            
+                            }else{
+                              var params = coreFuncs.retrieveParams(e.target.pathname);
+                              var newRoute = e.target.pathname;
+                            }
+                            var currentView = this;
+                            $.when(params).done(function(params){
+                                console.log("params done :"+params);
+                                var options = {
+                                          params : params,
+                                          area : "postArea",
+                                    };
+                                currentView.triggerMethod("change:area", options);
+                            });
+                     }
+                      $.when(newRoute).done(function(newRoute){
+                          coreFuncs.navigate(newRoute);
+                        });
               }
+            
 
         }, /*showClicked*/
 

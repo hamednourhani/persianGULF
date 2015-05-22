@@ -48,7 +48,7 @@
 		            	<ul>
 		            		<% _.each(terms.category,function(cat){ %>
 		            			<li>
-		            				<a href="<%= category.link %>" class="data-cat" data-cat="<%= cat.slug %>"><%= cat.name %></a>
+		            				<a href="<%= cat.link %>" class="data-cat" data-cat="<%= cat.slug %>"><%= cat.name %></a>
 		            			</li>
 	            			<% },this); %>
 		            	</ul>
@@ -73,6 +73,7 @@
 		       </ul> 
 	        </footer><!-- post-detail -->
 	    
+	    
 
 	 </script> <!-- #article-excerpt -->
 
@@ -86,7 +87,7 @@
 	        <div class="post-content">
 	            <%= content %>
 	        </div><!-- post-content -->
-	        <footer class="post-detail">
+	         <footer class="post-detail">
 	           <ul class = "meta-list" >
 		            <li>
 		            	<a href="<%= author.URL %>" class="data-author author-link p-author h-card" data-author-id="<%= author.ID %>">
@@ -104,17 +105,17 @@
 		            	<ul>
 		            		<% _.each(terms.category,function(cat){ %>
 		            			<li>
-		            				<a href="<%= category.link %>" class="data-cat" data-cat="<%= cat.slug %>"><%= cat.name %></a>
+		            				<a href="<%= cat.link %>" class="data-cat" data-cat="<%= cat.slug %>"><%= cat.name %></a>
 		            			</li>
 	            			<% },this); %>
 		            	</ul>
 		            </li> 
 		            <% }%>
 		            
-		            <% if(terms.tag){ %>
+		            <% if(terms.post_tag){ %>
 		            <li>99+
 		            	<ul>
-		            		 <% _.each(terms.tag,function(tag){ %>
+		            		 <% _.each(terms.post_tag,function(tag){ %>
 		            			<li>
 		            				<a href="<%= tag.link %>" class="data-tag" data-tag="<%= tag.slug %>"><%= tag.name %></a>
 		            			</li>

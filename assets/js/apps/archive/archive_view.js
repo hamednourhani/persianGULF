@@ -44,14 +44,15 @@ define([
 
                             if(element.hasClass('data-author')){
                               var params = {author : element.attr('data-author-id'),is_singular : false};
+                              var newRoute = coreFuncs.reqPermalink({permalink_type : "author", permalink_id : element.attr('data-author-id')});
 
                             } else if(element.hasClass('data-cat')){
                                var params = {category_name : element.attr('data-cat'),is_singular : false};
-                               var newRoute: element.attr('href').replace(/^.*\/\/[^\/]+/, '')
+                               var newRoute = element.attr('href').replace(/^.*\/\/[^\/]+/, '');
                             
                             } else if(element.hasClass('data-tag')){
                                var params = { tag : element.attr('data-tag'),is_singular : false};   
-                               var newRoute: element.attr('href').replace(/^.*\/\/[^\/]+/, '');
+                               var newRoute = element.attr('href').replace(/^.*\/\/[^\/]+/, '');
                             
                             }else{
                               var params = coreFuncs.retrieveParams(e.target.pathname);
@@ -67,7 +68,9 @@ define([
                                 currentView.triggerMethod("change:area", options);
                             });
                       }
-                      coreFuncs.navigate(newRoute);
+                      $.when(newRoute).done(function(newRoute){
+                          coreFuncs.navigate(newRoute);
+                        })
               }
            }, /*showClicked*/
 

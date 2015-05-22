@@ -222,7 +222,6 @@ add_action("wp_ajax_nopriv_persianGULF_permalink_helper", "persianGULF_permalink
 
 function persianGULF_permalink_helper() {
 
-global $wp,$wp_query; 
 
 $permalink_type = $_REQUEST["permalink_type"];
 $permalink_id = $_REQUEST["permalink_id"];

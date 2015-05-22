@@ -141,7 +141,7 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
             var ajaxnonce = $('#ajax-permalink-helper').attr('data-nonce');
             var permalink_type = options.permalink_type;
             var permalink_id = options.permalink_id;
-            console.log('options.permalink_type :'+rpermalink_type);
+            console.log('options.permalink_type :'+permalink_type);
            
               
 
