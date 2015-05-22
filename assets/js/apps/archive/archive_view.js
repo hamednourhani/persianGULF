@@ -43,13 +43,13 @@ define([
                       } else {
 
                             if(element.hasClass('data-author')){
-                              var params = {author : element.attr('data-author-id')};
+                              var params = {author : element.attr('data-author-id'),is_singular : false};
 
                             } else if(element.hasClass('data-cat')){
-                               var params = {category_name : element.attr('data-cat')};
+                               var params = {category_name : element.attr('data-cat'),is_singular : false};
                             
                             } else if(element.hasClass('data-tag')){
-                               var params = {tag : element.attr('data-tag')};   
+                               var params = {tag : element.attr('data-tag'),is_singular : false};   
                             
                             }else{
                               var params = coreFuncs.retrieveParams(e.target.pathname);

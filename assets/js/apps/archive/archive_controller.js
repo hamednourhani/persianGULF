@@ -45,7 +45,7 @@ define([
             if(posts.length !== 0){
                   
                   
-                  if(posts.length > 1 || ObjParams.is_singular === false){
+                  if(ObjParams.is_singular === false ){
                     //s,search,cat,author_name,term,taxonomy
                     
                       var postsListView = new List.posts({
