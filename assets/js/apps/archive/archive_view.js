@@ -46,6 +46,7 @@ define([
                               var params = {author : element.attr('data-author-id'),is_singular : false};
                               var newRoute = coreFuncs.reqPermalink({permalink_type : "author", permalink_id : element.attr('data-author-id')});
 
+
                             } else if(element.hasClass('data-cat')){
                                var params = {category_name : element.attr('data-cat'),is_singular : false};
                                var newRoute = element.attr('href').replace(/^.*\/\/[^\/]+/, '');

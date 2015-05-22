@@ -169,7 +169,7 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
                 
                 } else {
                     console.log('response : ' + JSON.stringify(response));
-                    ajax_p_defer.resolve(response);
+                    ajax_p_defer.resolve(response.permalink);
 
                 }
                             

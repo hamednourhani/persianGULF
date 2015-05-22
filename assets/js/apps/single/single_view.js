@@ -36,7 +36,7 @@ define([
 
                             if(element.hasClass('data-author')){
                               var params = {author : element.attr('data-author-id'),is_singular : false};
-                              var newRoute = coreFuncs.reqPermalink({permalink_type : "author", permalink_id : element.attr('data-author-id')});
+                              var newRoute = coreFuncs.reqPermalink({permalink_type : "author", permalink_id : element.attr('data-author-id')})['permalink'];
 
                             } else if(element.hasClass('data-cat')){
                                var params = {category_name : element.attr('data-cat'),is_singular : false};
