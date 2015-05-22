@@ -148,7 +148,7 @@ add_action("wp_ajax_nopriv_persianGULF_url_helper", "persianGULF_url_helper_appr
 
 function persianGULF_url_helper() {
 
-global $wp; 
+global $wp,$wp_query; 
 
 $query_vars = new stdClass();
    
@@ -164,11 +164,40 @@ $query_vars = new stdClass();
     $wp->parse_request();
     $query_vars = $wp->query_vars;
 
+	       
+    $wp_query->parse_query($query_vars);
+
+    $query_vars['is_single'] = $wp_query->is_single;
+    $query_vars['is_page'] = $wp_query->is_page;
+    $query_vars['is_archive'] = $wp_query->is_archive;
+    $query_vars['is_date'] = $wp_query->is_date;
+    $query_vars['is_year'] = $wp_query->is_year;
+    $query_vars['is_month'] = $wp_query->is_month;
+    $query_vars['is_day'] = $wp_query->is_day;
+    $query_vars['is_author'] = $wp_query->is_author;
+    $query_vars['is_category'] = $wp_query->is_category;
+    $query_vars['is_tag'] = $wp_query->is_tag;
+    $query_vars['is_tax'] = $wp_query->is_tax;
+    $query_vars['is_feed'] = $wp_query->is_feed;
+    $query_vars['is_home'] = $wp_query->is_home;
+    $query_vars['is_404'] = $wp_query->is_404;
+    $query_vars['is_paged'] = $wp_query->is_paged;
+    $query_vars['is_admin'] = $wp_query->is_admin;
+    $query_vars['is_attachment'] = $wp_query->is_attachment;
+    $query_vars['is_singular'] = $wp_query->is_singular;
+    $query_vars['is_posts_page'] = $wp_query->is_posts_page;
+    $query_vars['is_post_type_archive'] = $wp_query->is_post_type_archive;
+    $query_vars['is_comment_feed '] = $wp_query->is_comment_feed;
+    $query_vars['is_comment_popup'] = $wp_query->is_comment_popup;
+
+
+    $query_vars = json_encode($query_vars);
+    
+
 
   
 
    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-      $query_vars = json_encode($query_vars);
       echo $query_vars;
       
    }

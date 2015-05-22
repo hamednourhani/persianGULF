@@ -44,9 +44,8 @@ define([
                            //Posts List View 
             if(posts.length !== 0){
                   
-                  var ObjParams_keys =  _.keys(ObjParams);
-                  var archive_vars = ['author','author_name','tag','cat','category_name','term','taxonomy','s','search'];
-                  if(posts.length > 1 || (ObjParams.author || ObjParams.tag || ObjParams.category_name)){
+                  
+                  if(posts.length > 1 || ObjParams.is_singular === false){
                     //s,search,cat,author_name,term,taxonomy
                     
                       var postsListView = new List.posts({
