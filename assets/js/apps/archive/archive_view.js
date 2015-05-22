@@ -38,7 +38,7 @@ define([
                       
                         this.trigger("post:show", this.model);
                         var newRoute = this.model.attributes.link.replace(/^.*\/\/[^\/]+/, '');
-                        coreFuncs.navigate(newRoute);
+                        
                       
                       } else {
 
@@ -47,13 +47,15 @@ define([
 
                             } else if(element.hasClass('data-cat')){
                                var params = {category_name : element.attr('data-cat'),is_singular : false};
+                               var newRoute: element.attr('href').replace(/^.*\/\/[^\/]+/, '')
                             
                             } else if(element.hasClass('data-tag')){
-                               var params = {tag : element.attr('data-tag'),is_singular : false};   
+                               var params = { tag : element.attr('data-tag'),is_singular : false};   
+                               var newRoute: element.attr('href').replace(/^.*\/\/[^\/]+/, '');
                             
                             }else{
                               var params = coreFuncs.retrieveParams(e.target.pathname);
-                              coreFuncs.navigate(e.target.pathname);
+                              var newRoute = e.target.pathname;
                             }
                             var currentView = this;
                             $.when(params).done(function(params){
@@ -64,7 +66,8 @@ define([
                                     };
                                 currentView.triggerMethod("change:area", options);
                             });
-                  }
+                      }
+                      coreFuncs.navigate(newRoute);
               }
            }, /*showClicked*/
 

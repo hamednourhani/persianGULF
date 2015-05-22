@@ -85,8 +85,8 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
             var ajax_defer = $.Deferred();
             var options = options || {};
             var ajax_err = {};
-            var ajaxurl = $('#ajax-helper').attr('data-url');
-            var ajaxnonce = $('#ajax-helper').attr('data-nonce');
+            var ajaxurl = $('#ajax-param-helper').attr('data-url');
+            var ajaxnonce = $('#ajax-param-helper').attr('data-nonce');
             var requested_uri = options.requested_uri;
             console.log('options.requested_uri :'+requested_uri);
            
@@ -100,7 +100,7 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
                      //success: UrlHelper.renderData,
                      //error : UrlHelper.logError,
                      data : {
-                           action: "persianGULF_url_helper",
+                           action: "persianGULF_param_helper",
                            requested_uri : requested_uri,
                            nonce: ajaxnonce
                      }
@@ -131,6 +131,60 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
             
             return ajax_defer.promise();
          }; /*reqQueryVars*/
+
+         coreFuncs.reqPermalink = function(options){
+
+            var ajax_p_defer = $.Deferred();
+            var options = options || {};
+            var ajax_err = {};
+            var ajaxurl = $('#ajax-permalink-helper').attr('data-url');
+            var ajaxnonce = $('#ajax-permalink-helper').attr('data-nonce');
+            var permalink_type = options.permalink_type;
+            var permalink_id = options.permalink_id;
+            console.log('options.permalink_type :'+rpermalink_type);
+           
+              
+
+
+            $.ajax({
+                     method: "post",
+                     dataType:"json",
+                     url: ajaxurl,
+                     //success: UrlHelper.renderData,
+                     //error : UrlHelper.logError,
+                     data : {
+                           action: "persianGULF_permalink_helper",
+                           permalink_type : permalink_type,
+                           permalink_id : permalink_id,
+                           nonce: ajaxnonce
+                     }
+               
+            }).done(function(response){
+                
+                if(response.error === '404') {
+                
+                    console.log('url was not found',response);
+                    ajax_err['notfound'] = '404';
+                    ajax_p_defer.reject(ajax_err);
+                
+                } else {
+                    console.log('response : ' + JSON.stringify(response));
+                    ajax_p_defer.resolve(response);
+
+                }
+                            
+              }).fail(function(XMLHttpRequest, textStatus, errorThrown) { 
+                      console.log("Status: " + textStatus + " Error: " + errorThrown); 
+                      ajax_err = {
+                        textStatus : textStatus,
+                        errorThrown : errorThrown
+                      };
+                      ajax_p_defer.reject(ajax_err);
+                      
+              });
+            
+            return ajax_p_defer.promise();
+         }; /*reqPermalink*/
 
       
    }); /*persianGULF.coreFuncs*/

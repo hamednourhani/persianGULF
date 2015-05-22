@@ -5,7 +5,8 @@
 ***********************************************
 */
 
- $ajax_nonce = wp_create_nonce("persianGULF_url_helper_nonce");
+ $ajax_param_nonce = wp_create_nonce("persianGULF_param_helper_nonce");
+ $ajax_permalink_nonce = wp_create_nonce("persianGULF_permalink_helper_nonce");
  $ajax_url = admin_url('admin-ajax.php');
 
  ?>
@@ -47,19 +48,19 @@
 		            	<ul>
 		            		<% _.each(terms.category,function(cat){ %>
 		            			<li>
-		            				<a href="#" class="data-cat" data-cat="<%= cat.slug %>"><%= cat.name %></a>
+		            				<a href="<%= category.link %>" class="data-cat" data-cat="<%= cat.slug %>"><%= cat.name %></a>
 		            			</li>
 	            			<% },this); %>
 		            	</ul>
 		            </li> 
 		            <% }%>
 		            
-		            <% if(terms.tag){ %>
+		            <% if(terms.post_tag){ %>
 		            <li>99+
 		            	<ul>
-		            		 <% _.each(terms.tag,function(tag){ %>
+		            		 <% _.each(terms.post_tag,function(tag){ %>
 		            			<li>
-		            				<a href="#" class="data-tag" data-tag="<%= tag.slug %>"><%= tag.name %></a>
+		            				<a href="<%= tag.link %>" class="data-tag" data-tag="<%= tag.slug %>"><%= tag.name %></a>
 		            			</li>
 	            			<% },this);%>
 		            	</ul> 
@@ -103,7 +104,7 @@
 		            	<ul>
 		            		<% _.each(terms.category,function(cat){ %>
 		            			<li>
-		            				<a href="#" class="data-cat" data-cat="<%= cat.slug %>"><%= cat.name %></a>
+		            				<a href="<%= category.link %>" class="data-cat" data-cat="<%= cat.slug %>"><%= cat.name %></a>
 		            			</li>
 	            			<% },this); %>
 		            	</ul>
@@ -115,7 +116,7 @@
 		            	<ul>
 		            		 <% _.each(terms.tag,function(tag){ %>
 		            			<li>
-		            				<a href="#" class="data-tag" data-tag="<%= tag.slug %>"><%= tag.name %></a>
+		            				<a href="<%= tag.link %>" class="data-tag" data-tag="<%= tag.slug %>"><%= tag.name %></a>
 		            			</li>
 	            			<% },this);%>
 		            	</ul> 
@@ -152,7 +153,8 @@
  	</script><!-- loading-view -->
 
 
- 	<span id="ajax-helper" data-nonce="<?php echo $ajax_nonce; ?>" data-url="<?php echo esc_url($ajax_url); ?>"></span>
+ 	<span id="ajax-param-helper" data-nonce="<?php echo $ajax_param_nonce; ?>" data-url="<?php echo esc_url($ajax_url); ?>"></span>
+ 	<span id="ajax-permalink-helper" data-nonce="<?php echo $ajax_permalink_nonce; ?>" data-url="<?php echo esc_url($ajax_url); ?>"></span>
 	
 
 

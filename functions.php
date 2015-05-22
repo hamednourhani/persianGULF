@@ -141,18 +141,18 @@ function persianGULF_require_js_config( $tag, $handle ) {
 }
 add_filter( 'script_loader_tag', 'persianGULF_require_js_config',10,2);
 
-/* url_helper function. */
+/*------------------- url_helper function.----------------------------------------- */
 
-add_action("wp_ajax_persianGULF_url_helper", "persianGULF_url_helper");
-add_action("wp_ajax_nopriv_persianGULF_url_helper", "persianGULF_url_helper_approval");
+add_action("wp_ajax_persianGULF_param_helper", "persianGULF_param_helper");
+add_action("wp_ajax_nopriv_persianGULF_param_helper", "persianGULF_param_helper_approval");
 
-function persianGULF_url_helper() {
+function persianGULF_param_helper() {
 
 global $wp,$wp_query; 
 
 $query_vars = new stdClass();
    
-   if ( !wp_verify_nonce( $_REQUEST['nonce'], "persianGULF_url_helper_nonce")) {
+   if ( !wp_verify_nonce( $_REQUEST['nonce'], "persianGULF_param_helper_nonce")) {
       exit("you dont have access");
    }   
 
@@ -209,12 +209,43 @@ $query_vars = new stdClass();
 
 }
 
-function persianGULF_url_helper_approval() {
+function persianGULF_param_helper_approval() {
    echo "You must log in to view";
    die();
 }
 
 
-   
+// --------------Permalink-Helper-------------------------------------------------
+
+add_action("wp_ajax_persianGULF_permalink_helper", "persianGULF_permalink_helper");
+add_action("wp_ajax_nopriv_persianGULF_permalink_helper", "persianGULF_permalink_helper_approval");
+
+function persianGULF_permalink_helper() {
+
+global $wp,$wp_query; 
+
+$permalink_type = $_REQUEST["permalink_type"];
+$permalink_id = $_REQUEST["permalink_id"];
+
+	if($permalink_type === "author"){
+		$permalink = get_author_posts_url($permalink_id);
+	}
+
+  if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+      echo $permalink;
+      
+   }
+   else {
+      header("Location: ".$_SERVER["HTTP_REFERER"]);
+   }
+
+   die();
+}
+
+
+function persianGULF_permalink_helper_approval() {
+   echo "You must log in to view";
+   die();
+}   
    
 ?>
