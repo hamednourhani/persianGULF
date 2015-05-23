@@ -22,10 +22,8 @@ define([
             
             /* Show Loading Spinner in primaryRegion */
             var loadingView = new persianGULF.Common.Views.Loading();
-            var emptyView = new persianGULF.Common.Views.Empty();
-            
             Index.indexLayout.postArea.show(loadingView);
-            Index.indexLayout.commentArea.show(emptyView);
+            
             
             /* Show the content in postRegion*/
             

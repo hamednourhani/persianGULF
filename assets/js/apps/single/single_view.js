@@ -1,9 +1,11 @@
 define([
         "app",
         "marionette",
-        "core/core_functions"
+        "core/core_functions",
+        'apps/index/index_layout',
+         "common/common_views",
         ],
-         function(persianGULF,Marionette,coreFuncs){
+         function(persianGULF,Marionette,coreFuncs,Index,commonViews){
  "use strict" 
   console.log('single_view is running');
 
@@ -21,6 +23,11 @@ define([
        showClicked: function(e){
           coreFuncs.showClicked(e,this);
          }, /*showClicked*/
+
+       onBeforeDestroy: function(){
+           var emptyView = new commonViews.Empty();
+           Index.indexLayout.commentArea.show(emptyView);
+        },
            
 	    });/*Single.Post*/
 	    
