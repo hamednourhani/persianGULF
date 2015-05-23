@@ -12,12 +12,13 @@ define(["app"], function(persianGULF){
 		    header: "#app-header",
 		    luncher: "#app-luncher",
 		    postArea : "#app-post-area",
+		    commentArea : "#app-comment-area",
 		    sidebar : "#app-sidebar",
 		    footer : "#app-footer",
 		  }
 		});
 
-		
+		Index.indexLayout = new Index.IndexLayout();		
 
 		
 	});

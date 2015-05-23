@@ -13,19 +13,14 @@ define([
 		Index.Controller = {
 
 			ownLayout : function(){
-		
-				Index.indexLayout = new Index.IndexLayout({
-
-					childEvents: {
-				      'change:area': function (childView, options) {
-				        
-				        console.log('some areas requested change : '+childView+" ,with options : "+options);
-				        Index.Controller.changeArea(options);
-				      }
-				    },
-
+				
+				
+				Index.indexLayout.on("childview:change:area",function(childView, options){
+					
+					console.log('some areas requested change : '+childView+" ,with options : "+options);
+				    Index.Controller.changeArea(options);
 				});
-
+				
 				Index.indexLayout.render();
 
 			}, /*ownLayout*/

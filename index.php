@@ -8,9 +8,8 @@
                  
             <section class="layout">
                 <div class="primary" id="primary">
-                    <div class="post-area" id="app-post-area">
-
-                    </div>                   
+                    <div class="post-area" id="app-post-area"></div>                   
+                    <div class="comment-area" id="app-comment-area"></div>
                 </div><!-- primary -->
 
                 <?php get_sidebar(); ?>

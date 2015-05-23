@@ -10,7 +10,12 @@ define(["app","marionette"], function(persianGULF,Marionette){
 	       	//$("#spinner")
 	     	} /*onShow*/
 	   }); /*views.Loading*/
+
+	    Views.Empty = Marionette.ItemView.extend({
+	    	template : "#empty-area",
+	    });
 	}); /*Common.views*/
+
 
 	return persianGULF.Common.Views;
 }); /*requireJS define*/

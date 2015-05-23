@@ -34,7 +34,7 @@
 	           <ul class = "meta-list" >
 		            <li>
 		            	<a href="<%= author.URL %>" class="data-author author-link p-author h-card" data-author-id="<%= author.ID %>">
-		            		<% if(author.name){ print(author.name) }else{ print(author.username)} %>
+		            		<% if(author.name){ print(author.nickname) }else{ print(author.username)} %>
 		            	</a> 
 		            </li>
 		            <li>
@@ -91,7 +91,7 @@
 	           <ul class = "meta-list" >
 		            <li>
 		            	<a href="<%= author.URL %>" class="data-author author-link p-author h-card" data-author-id="<%= author.ID %>">
-		            		<% if(author.name){ print(author.name) }else{ print(author.username)} %>
+		            		<% if(author.name){ print(author.nickname) }else{ print(author.username)} %>
 		            	</a> 
 		            </li>
 		            <li>
@@ -149,9 +149,42 @@
 	   		<i id="spinner" class="fa fa-cog fa-spin" ></i>
 	   	</h3>
 	   	
-	   		
-	   	</div>
+	   	   
  	</script><!-- loading-view -->
+ 	
+ 	<script type="text/template" id="empty-area">  	
+ 	</script><!-- loading-view -->
+
+ 	 <script type="text/template" id="comment-template">
+	    
+	        <div class="post-content">
+	            <%= content %>
+	        </div><!-- post-content -->
+	         <footer class="post-detail">
+	           <ul class = "meta-list" >
+		            <li>
+		            	<a href="<%= author.URL %>" class="data-author author-link p-author h-card" data-author-id="<%= author.ID %>">
+		            		<% if(author.name){ print(author.nickname) }else{ print(author.username)} %>
+		            	</a> 
+		            </li>
+		            <li>
+		            	<% print(date.split("T")[0]) %>
+		            </li>
+		            		            
+		       </ul> 
+	        </footer><!-- post-detail -->
+	    
+
+	 </script> <!-- #article-content -->
+
+	 <script type="text/template" id="no-comment-found">
+	    
+	        <header class="comment-area-title">
+	            <h3>
+	            	No comment Found
+	            </h3>
+	        </header><!-- post-title -->
+	 </script> <!-- #article-404 -->
 
 
  	<span id="ajax-param-helper" data-nonce="<?php echo $ajax_param_nonce; ?>" data-url="<?php echo esc_url($ajax_url); ?>"></span>

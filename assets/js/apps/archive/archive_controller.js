@@ -22,7 +22,10 @@ define([
             
             /* Show Loading Spinner in primaryRegion */
             var loadingView = new persianGULF.Common.Views.Loading();
+            var emptyView = new persianGULF.Common.Views.Empty();
+            
             Index.indexLayout.postArea.show(loadingView);
+            Index.indexLayout.commentArea.show(emptyView);
             
             /* Show the content in postRegion*/
             
@@ -58,9 +61,8 @@ define([
                       });
 
                       //Posts List Show
-                      require(['apps/index/index_layout'],function(Index){
-                          Index.indexLayout.postArea.show(postsListView);
-                      });
+                      Index.indexLayout.postArea.show(postsListView);
+                      
                    
                     } else {
                                     
