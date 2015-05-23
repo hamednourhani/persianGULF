@@ -189,6 +189,7 @@ $query_vars = new stdClass();
     $query_vars['is_post_type_archive'] = $wp_query->is_post_type_archive;
     $query_vars['is_comment_feed '] = $wp_query->is_comment_feed;
     $query_vars['is_comment_popup'] = $wp_query->is_comment_popup;
+    $query_vars['max_num_pages'] = $wp_query->max_num_pages;
 
 
     $query_vars = json_encode($query_vars);
