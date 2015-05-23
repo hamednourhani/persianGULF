@@ -222,13 +222,13 @@ add_action("wp_ajax_nopriv_persianGULF_permalink_helper", "persianGULF_permalink
 
 function persianGULF_permalink_helper() {
 
-$permalinkObj = new stdClass();
+$permalinkObj = array();
 
 $permalink_type = $_REQUEST["permalink_type"];
 $permalink_id = $_REQUEST["permalink_id"];
 
 	if($permalink_type === "author"){
-		$permalinkObj['permalink'] = get_author_posts_url($permalink_id);
+		$permalinkObj['permalink'] = get_author_posts_url($permalink_id);//$permalink_id);
 	}
 $permalinkObj = json_encode($permalinkObj);
 

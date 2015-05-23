@@ -186,6 +186,10 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
             return ajax_p_defer.promise();
          }; /*reqPermalink*/
 
+         coreFuncs.removeDomain = function(url){
+           return url.replace(/^.*\/\/[^\/]+/, '');
+         };
+
       
    }); /*persianGULF.coreFuncs*/
 

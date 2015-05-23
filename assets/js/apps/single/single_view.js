@@ -18,33 +18,36 @@ define([
              "click a": "showClicked",
           },
 
-	     showClicked: function(e){
-             persianGULF.tempLink = "";
+	     
+           showClicked: function(e){
              var element = $(e.target);
              e.preventDefault();
              e.stopPropagation();
-                          
-             if(coreFuncs.isExternalStringReplace(e.target.href)){
-                  window.open(e.target.href, '_blank');
-             } else {
-                  if(element.hasClass('post-link') || element.hasClass('data-date') || element.hasClass('data-comment')){
+             var pageData = {};
+             
+                 if(coreFuncs.isExternalStringReplace(e.target.href)){
+                      window.open(e.target.href, '_blank');
+                 } else {
                       
-                        var newRoute = this.model.attributes.link.replace(/^.*\/\/[^\/]+/, '');
-                        coreFuncs.navigate(newRoute);
+                      if(element.hasClass('post-link') || element.hasClass('data-date') || element.hasClass('data-comment')){
                       
-                    } else {
+                        this.trigger("post:show", this.model);
+                        var newRoute = coreFuncs.removeDomain(this.model.attributes.link);
+                        
+                      
+                      } else {
 
                             if(element.hasClass('data-author')){
                               var params = {author : element.attr('data-author-id'),is_singular : false};
-                              var newRoute = coreFuncs.reqPermalink({permalink_type : "author", permalink_id : element.attr('data-author-id')})['permalink'];
-
+                              var newRoute = coreFuncs.reqPermalink({permalink_type : "author", permalink_id : element.attr('data-author-id')});
+                              
                             } else if(element.hasClass('data-cat')){
                                var params = {category_name : element.attr('data-cat'),is_singular : false};
-                               var newRoute = element.attr('href').replace(/^.*\/\/[^\/]+/, '');
+                               var newRoute = element.attr('href');
                             
                             } else if(element.hasClass('data-tag')){
                                var params = { tag : element.attr('data-tag'),is_singular : false};   
-                               var newRoute = element.attr('href').replace(/^.*\/\/[^\/]+/, '');
+                               var newRoute = element.attr('href');
                             
                             }else{
                               var params = coreFuncs.retrieveParams(e.target.pathname);
@@ -59,14 +62,13 @@ define([
                                     };
                                 currentView.triggerMethod("change:area", options);
                             });
-                     }
+                      }
                       $.when(newRoute).done(function(newRoute){
+                          newRoute = coreFuncs.removeDomain(newRoute);
                           coreFuncs.navigate(newRoute);
-                        });
+                        })
               }
-            
-
-        }, /*showClicked*/
+           }, /*showClicked*/
 
 
            
