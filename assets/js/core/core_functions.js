@@ -188,7 +188,58 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
 
          coreFuncs.removeDomain = function(url){
            return url.replace(/^.*\/\/[^\/]+/, '');
-         };
+         }; /*removeDomain*/
+
+         coreFuncs.showClicked =function(e,currentView){
+             var element = $(e.target);
+             e.preventDefault();
+             e.stopPropagation();
+             var pageData = {};
+             
+                 if(coreFuncs.isExternalStringReplace(e.target.href)){
+                      window.open(e.target.href, '_blank');
+                 } else {
+                      
+                      if(element.hasClass('post-link') || element.hasClass('data-date') || element.hasClass('data-comment')){
+                      
+                        currentView.trigger("post:show", currentView.model);
+                        var newRoute = coreFuncs.removeDomain(currentView.model.attributes.link);
+                        
+                      
+                      } else {
+
+                            if(element.hasClass('data-author')){
+                              var params = {author : element.attr('data-author-id'),is_singular : false};
+                              var newRoute = coreFuncs.reqPermalink({permalink_type : "author", permalink_id : element.attr('data-author-id')});
+                              
+                            } else if(element.hasClass('data-cat')){
+                               var params = {category_name : element.attr('data-cat'),is_singular : false};
+                               var newRoute = element.attr('href');
+                            
+                            } else if(element.hasClass('data-tag')){
+                               var params = { tag : element.attr('data-tag'),is_singular : false};   
+                               var newRoute = element.attr('href');
+                            
+                            }else{
+                              var params = coreFuncs.retrieveParams(e.target.pathname);
+                              var newRoute = e.target.pathname;
+                            }
+                            var currentView = currentView;
+                            $.when(params).done(function(params){
+                                console.log("params done :"+params);
+                                var options = {
+                                          params : params,
+                                          area : "postArea",
+                                    };
+                                currentView.triggerMethod("change:area", options);
+                            });
+                      }
+                      $.when(newRoute).done(function(newRoute){
+                          newRoute = coreFuncs.removeDomain(newRoute);
+                          coreFuncs.navigate(newRoute);
+                        })
+              }
+           }; /*showClicked*/
 
       
    }); /*persianGULF.coreFuncs*/
