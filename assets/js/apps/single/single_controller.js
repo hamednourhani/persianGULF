@@ -1,11 +1,12 @@
 define([
 	"app",
 	"apps/comment/comment_controller",
+	"apps/comment/comment_form_controller",
 	'apps/index/index_layout',
 	"apps/single/single_view",
 	"common/common_views",
 	
-	], function(persianGULF,commentListController,Index){
+	], function(persianGULF,commentListController,cFormController,Index){
 
  "use strict" 
   console.log('single_controller is running');
@@ -24,6 +25,7 @@ define([
 
 	       	Index.indexLayout.postArea.show(singleView);
 	       	commentListController.listComments(model.attributes.ID);
+
                                       
 	     }, /*showPost*/
 

@@ -9,6 +9,7 @@
             <section class="layout">
                 <div class="primary" id="primary">
                     <div class="post-area" id="app-post-area"></div>                   
+                    <div class="comment-form" id="app-comment-form"></div> 
                     <div class="comment-area" id="app-comment-area"></div>
                 </div><!-- primary -->
 

@@ -143,15 +143,10 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
             var permalink_id = options.permalink_id;
             console.log('options.permalink_type :'+permalink_type);
            
-              
-
-
             $.ajax({
                      method: "post",
                      dataType:"json",
                      url: ajaxurl,
-                     //success: UrlHelper.renderData,
-                     //error : UrlHelper.logError,
                      data : {
                            action: "persianGULF_permalink_helper",
                            permalink_type : permalink_type,
@@ -160,32 +155,22 @@ define(["app",'jquery','backbone'], function(persianGULF,$,Backbone){
                      }
                
             }).done(function(response){
-                
-                if(response.error === '404') {
-                
-                    console.log('url was not found',response);
-                    ajax_err['notfound'] = '404';
-                    ajax_p_defer.reject(ajax_err);
-                
-                } else {
-                    console.log('response : ' + JSON.stringify(response));
+                   console.log('response : ' + JSON.stringify(response));
                     ajax_p_defer.resolve(response.permalink);
-
-                }
-                            
+                                           
               }).fail(function(XMLHttpRequest, textStatus, errorThrown) { 
                       console.log("Status: " + textStatus + " Error: " + errorThrown); 
                       ajax_err = {
                         textStatus : textStatus,
                         errorThrown : errorThrown
                       };
-                      ajax_p_defer.reject(ajax_err);
-                      
+                     ajax_p_defer.reject(ajax_err);
               });
             
             return ajax_p_defer.promise();
          }; /*reqPermalink*/
 
+         
          coreFuncs.removeDomain = function(url){
            return url.replace(/^.*\/\/[^\/]+/, '');
          }; /*removeDomain*/

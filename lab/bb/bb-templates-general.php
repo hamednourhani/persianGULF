@@ -186,9 +186,11 @@
 	        </header><!-- post-title -->
 	 </script> <!-- #article-404 -->
 
+	
 
  	<span id="ajax-param-helper" data-nonce="<?php echo $ajax_param_nonce; ?>" data-url="<?php echo esc_url($ajax_url); ?>"></span>
  	<span id="ajax-permalink-helper" data-nonce="<?php echo $ajax_permalink_nonce; ?>" data-url="<?php echo esc_url($ajax_url); ?>"></span>
+ 	
 	
 
 

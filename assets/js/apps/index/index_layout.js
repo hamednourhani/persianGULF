@@ -12,6 +12,7 @@ define(["app"], function(persianGULF){
 		    header: "#app-header",
 		    luncher: "#app-luncher",
 		    postArea : "#app-post-area",
+		    commentForm : "#app-comment-form",
 		    commentArea : "#app-comment-area",
 		    sidebar : "#app-sidebar",
 		    footer : "#app-footer",
