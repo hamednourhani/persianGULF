@@ -1,12 +1,11 @@
 define([
 	"app",
 	"apps/comment/comment_controller",
-	"apps/comment/comment_form_controller",
 	'apps/index/index_layout',
 	"apps/single/single_view",
 	"common/common_views",
 	
-	], function(persianGULF,commentListController,cFormController,Index){
+	], function(persianGULF,commentListController,Index){
 
  "use strict" 
   console.log('single_controller is running');

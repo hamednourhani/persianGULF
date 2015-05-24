@@ -121,10 +121,8 @@ $coreHelper = array(
  					'homeUrl' => esc_url(home_url()),
  					);
 
-wp_register_script( 'core_helper', get_template_directory_uri().'/assets/js/core/core_helper.js', array('jquery'), "", true );
-wp_localize_script( 'core_helper', 'coreHelper', $coreHelper );
 
-wp_register_script('requireJS', get_template_directory_uri().'/assets/js/vendor/require.js',array('jquery','underscore','backbone','core_helper'),'',true);
+wp_register_script('requireJS', get_template_directory_uri().'/assets/js/vendor/require.js',array('jquery','underscore','backbone','json2'),'',true);
 wp_enqueue_script('requireJS');
 
  }

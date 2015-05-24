@@ -19,7 +19,6 @@ if (typeof window.Backbone === 'object' ) {
 requirejs.config({
 //  baseUrl: "",
   paths: {
-    json2: "vendor/json2",
     marionette: "vendor/backbone.marionette.min",
     babysitter : "vendor/backbone.babysitter.min",
            
